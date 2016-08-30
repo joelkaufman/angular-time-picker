@@ -17,7 +17,7 @@ $dark-green: #5e5e5e;
   .picker{
     font-size:0.8em;
     background:$background;
-    width:15em;
+    width:16em;
     user-select:none;
     color:$text;
     font-family: 'Roboto', sans-serif;
@@ -27,18 +27,22 @@ $dark-green: #5e5e5e;
       background:$face;
       padding:1em;
       height:3em;
-      text-align:right;
+      text-align:center;
+
       
       .active{
         color:$activeText;
       }
       .time{
+        position: relative;
         .part{
           cursor: pointer;
         }
         font-size:3em;
         line-height:1em;
         .am-pm{
+          position: absolute;
+          bottom: -10px;
           font-size:(1em/3);
         }
       }
@@ -49,7 +53,7 @@ $dark-green: #5e5e5e;
       .face{
         position:relative;
         background:$lightBackground;
-        height:13em;
+        height:14em;
         border-radius:50%;
         cursor: move;
         .face-set{
@@ -61,7 +65,7 @@ $dark-green: #5e5e5e;
             text-align:center;
             pointer-events:none;
             width:100%;
-            top:6em;
+            top:6.5em;
             line-height:1em;
             height:1em;
             @for $i from 0 to 12{
@@ -77,16 +81,14 @@ $dark-green: #5e5e5e;
             &.anim{
               transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
             }
-
             height:$handleSize;
             width:$handleSize;
-            top:6.5em - $handleSize / 2;
-            left:6.5em - $handleSize / 2;
+            top:7em - $handleSize / 2;
+            left:7em - $handleSize / 2;
             position:absolute;
-            background:$light-green;
+            background:$handle;
             border-radius:50%;
             transform:rotate(10 * 30deg) translateY(-5.5em);
-            opacity: .7;
           }
       
           .handle-bar{
@@ -96,11 +98,11 @@ $dark-green: #5e5e5e;
             }
             transform-origin:bottom;
             position:absolute;
-            bottom:6.5em;
-            background:black;
+            bottom:7em;
+            background:$dark-green;
             width:1px;
-            height:.9em;
-            left:6.5em;
+            height:.8em;
+            left:7em;
           }
           &.face-off{
             .face-number{
@@ -169,6 +171,6 @@ $dark-green: #5e5e5e;
   box-shadow:black 0 0 0.2em;
 }
 
-@include picker($lightHandle,$light-green,#fff,lighten($light-green,20),#ffffff);
+@include picker(rgba(0, 150, 136, 0.5),$light-green,#fff,lighten($light-green,20),#ffffff);
 
 
