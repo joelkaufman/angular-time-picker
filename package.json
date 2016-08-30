@@ -1,0 +1,17 @@
+{
+  "name": "time-picker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-scss": "^1.4.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}

@@ -1,0 +1,174 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+$darkHandle:rgba(104,0,0,0.5);
+$darkFace:#363636;
+$darkBackground:#404040;
+$darkText:#fff;
+$darkActiveText:#ff4444;
+
+$lightHandle:rgba(0,153,204,0.5);
+$lightFace:#fff;
+$lightBackground:#f2f2f2;
+$lightText:#909090;
+$lightActiveText:#33b5e5;
+$light-green:#009688;
+$dark-green: #5e5e5e;
+
+@mixin picker($handle,$face,$background,$text,$activeText){
+  .picker{
+    font-size:0.8em;
+    background:$background;
+    width:15em;
+    user-select:none;
+    color:$text;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    .time-wrap{
+      background:$face;
+      padding:1em;
+      height:3em;
+      text-align:right;
+      
+      .active{
+        color:$activeText;
+      }
+      .time{
+        .part{
+          cursor: pointer;
+        }
+        font-size:3em;
+        line-height:1em;
+        .am-pm{
+          font-size:(1em/3);
+        }
+      }
+
+    }
+    .face-wrap{
+      padding:1em;
+      .face{
+        position:relative;
+        background:$lightBackground;
+        height:13em;
+        border-radius:50%;
+        cursor: move;
+        .face-set{
+
+          .face-number{
+            color:black;
+            position:absolute;
+            transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
+            text-align:center;
+            pointer-events:none;
+            width:100%;
+            top:6em;
+            line-height:1em;
+            height:1em;
+            @for $i from 0 to 12{
+              &[data-css-time="#{$i}"]{
+                transform:rotate($i * 30deg) translateY(-5.5em) rotate($i * -30deg);
+              }
+            }
+
+          }
+          $handleSize: 2em;
+          .handle{
+            transition: opacity 0.4s;
+            &.anim{
+              transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
+            }
+
+            height:$handleSize;
+            width:$handleSize;
+            top:6.5em - $handleSize / 2;
+            left:6.5em - $handleSize / 2;
+            position:absolute;
+            background:$light-green;
+            border-radius:50%;
+            transform:rotate(10 * 30deg) translateY(-5.5em);
+            opacity: .7;
+          }
+      
+          .handle-bar{
+            transition: opacity 0.4s;
+            &.anim{
+              transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
+            }
+            transform-origin:bottom;
+            position:absolute;
+            bottom:6.5em;
+            background:black;
+            width:1px;
+            height:.9em;
+            left:6.5em;
+          }
+          &.face-off{
+            .face-number{
+              opacity:0;
+            }
+            .handle, .handle-bar{
+              opacity:0;
+            }
+            &.min{
+              @for $i from 0 to 12{
+                .face-number[data-css-time="#{$i}"]{
+                  transform:rotate($i * 30deg) translateY(-7em) rotate($i * -30deg);
+                }
+              }
+            }
+            &.hour{
+              @for $i from 0 to 12{
+                .face-number[data-css-time="#{$i}"]{
+                  transform:rotate($i * 30deg) translateY(-4em) rotate($i * -30deg);
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+    .am-pm-btns{
+      margin-top:-1em;
+      color: black;
+      padding:1em;
+      padding-top:0;
+      height:2.65em;
+      text-align:center;
+
+      .am-pm-btn{
+        display:inline-block;
+        height:2em;
+        width:2.7em;
+        background:#fff;
+        border-radius:50%;
+        cursor: pointer;
+
+        padding-top: .7em;
+
+        &.am{
+          float:left;
+        }
+        &.pm{
+          float:right;
+        }
+        &.active{
+          background:$light-green;
+           color: #fff;
+        }
+      }
+
+    }
+  }
+
+}
+
+.picker{
+  margin:auto;
+  margin-top:5em;
+  box-shadow:black 0 0 0.2em;
+}
+
+@include picker($lightHandle,$light-green,#fff,lighten($light-green,20),#ffffff);
+
+
