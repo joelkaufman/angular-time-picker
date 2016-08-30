@@ -38,10 +38,10 @@
         $$('.time .am-pm').on('click', function() {
           setAmPm(!am);
         });
-        $$('*').css('transition', 'none');
-        setTimeout(function() {
-          $$('*').css('transition', false);
-        })
+        // $$('*').css('transition', 'none');
+        // setTimeout(function() {
+        //   $$('*').css('transition', false);
+        // })
 
 
 
@@ -124,7 +124,7 @@
             left: $this.outerWidth() / 2 + pos.left,
             top: $this.outerHeight() / 2 + pos.top
           };
-          console.log(cent);
+        
           var hrs = Math.atan2(e.pageY - cent.top, e.pageX - cent.left) / Math.PI * 6 + 3;
           console.log(hrs);
           hrs += 12

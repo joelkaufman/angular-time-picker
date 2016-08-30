@@ -13,6 +13,19 @@ $lightActiveText:#33b5e5;
 $light-green:#009688;
 $dark-green: #5e5e5e;
 
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+
 @mixin picker($handle,$face,$background,$text,$activeText){
   .picker{
     font-size:0.8em;
@@ -61,7 +74,7 @@ $dark-green: #5e5e5e;
           .face-number{
             color:black;
             position:absolute;
-            transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
+            transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.3s;
             text-align:center;
             pointer-events:none;
             width:100%;
@@ -77,10 +90,10 @@ $dark-green: #5e5e5e;
           }
           $handleSize: 2em;
           .handle{
-            transition: opacity 0.4s;
-            &.anim{
-              transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
-            }
+            // transition: opacity 0.4s;
+            // &.anim{
+            //   transition:transform 0.7s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
+            // }
             height:$handleSize;
             width:$handleSize;
             top:7em - $handleSize / 2;
@@ -92,10 +105,10 @@ $dark-green: #5e5e5e;
           }
       
           .handle-bar{
-            transition: opacity 0.4s;
-            &.anim{
-              transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
-            }
+            // transition: opacity 0.4s;
+            // &.anim{
+            //   transition:transform 0.5s cubic-bezier(.47,.02,.74,1.81), opacity 0.4s;
+            // }
             transform-origin:bottom;
             position:absolute;
             bottom:7em;
@@ -159,7 +172,36 @@ $dark-green: #5e5e5e;
            color: #fff;
         }
       }
+    }
 
+    .reset-save-btn{
+      @include clearfix;
+      border-top: 2px solid lighten($light-green,20);
+      button{
+       
+        float: right;
+        border: none;
+        height: 40px;
+        font-size: 1.2em;
+        color: $dark-green;
+        background: #fff;
+        outline: none;
+        text-align: center;
+      
+        width: 50%;
+
+        transition: background-color 200ms ease-out 20ms;
+
+        &:hover{
+          background: rgba(0, 150, 136, 0.25);
+    
+        }
+        &:active{
+          background:$light-green;
+          color: #fff;
+        }
+      }
+  
     }
   }
 

@@ -40,7 +40,7 @@
       .picker .face-wrap .face .face-set .face-number {
         color: black;
         position: absolute;
-        transition: transform 0.5s cubic-bezier(0.47, 0.02, 0.74, 1.81), opacity 0.4s;
+        transition: transform 0.5s cubic-bezier(0.47, 0.02, 0.74, 1.81), opacity 0.3s;
         text-align: center;
         pointer-events: none;
         width: 100%;
@@ -72,7 +72,6 @@
         .picker .face-wrap .face .face-set .face-number[data-css-time="11"] {
           transform: rotate(330deg) translateY(-5.5em) rotate(-330deg); }
       .picker .face-wrap .face .face-set .handle {
-        transition: opacity 0.4s;
         height: 2em;
         width: 2em;
         top: 6em;
@@ -81,10 +80,7 @@
         background: rgba(0, 150, 136, 0.5);
         border-radius: 50%;
         transform: rotate(300deg) translateY(-5.5em); }
-        .picker .face-wrap .face .face-set .handle.anim {
-          transition: transform 0.5s cubic-bezier(0.47, 0.02, 0.74, 1.81), opacity 0.4s; }
       .picker .face-wrap .face .face-set .handle-bar {
-        transition: opacity 0.4s;
         transform-origin: bottom;
         position: absolute;
         bottom: 7em;
@@ -92,8 +88,6 @@
         width: 1px;
         height: .8em;
         left: 7em; }
-        .picker .face-wrap .face .face-set .handle-bar.anim {
-          transition: transform 0.5s cubic-bezier(0.47, 0.02, 0.74, 1.81), opacity 0.4s; }
       .picker .face-wrap .face .face-set.face-off .face-number {
         opacity: 0; }
       .picker .face-wrap .face .face-set.face-off .handle, .picker .face-wrap .face .face-set.face-off .handle-bar {
@@ -166,5 +160,28 @@
       .picker .am-pm-btns .am-pm-btn.pm {
         float: right; }
       .picker .am-pm-btns .am-pm-btn.active {
+        background: #009688;
+        color: #fff; }
+  .picker .reset-save-btn {
+    border-top: 2px solid #00fce4; }
+    .picker .reset-save-btn:before, .picker .reset-save-btn:after {
+      content: "";
+      display: table; }
+    .picker .reset-save-btn:after {
+      clear: both; }
+    .picker .reset-save-btn button {
+      float: right;
+      border: none;
+      height: 40px;
+      font-size: 1.2em;
+      color: #5e5e5e;
+      background: #fff;
+      outline: none;
+      text-align: center;
+      width: 50%;
+      transition: background-color 200ms ease-out 20ms; }
+      .picker .reset-save-btn button:hover {
+        background: rgba(0, 150, 136, 0.25); }
+      .picker .reset-save-btn button:active {
         background: #009688;
         color: #fff; }
